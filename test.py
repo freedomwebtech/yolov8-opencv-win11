@@ -27,12 +27,12 @@ count=0
 while True:
     
     ret,frame = cap.read()
-    frame=cv2.resize(frame,(1020,500))
-    if ret is None:
+    if not ret:
         break
     count += 1
     if count % 3 != 0:
         continue
+    frame=cv2.resize(frame,(1020,500))
 
     results=model.predict(frame)
            
